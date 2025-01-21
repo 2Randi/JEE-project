@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 18 jan. 2025 à 14:34
+-- Généré le : mar. 21 jan. 2025 à 16:45
 -- Version du serveur : 8.3.0
 -- Version de PHP : 8.2.18
 
@@ -48,7 +48,6 @@ INSERT INTO `batiment` (`codeB`, `anneeC`, `campus`) VALUES
 ('triolet_b10', 1960, 'Triolet'),
 ('triolet_b01', 1898, 'Triolet'),
 ('triolet_b12', 2050, 'Education'),
-('TEST01', 2025, 'Education'),
 ('P31', 2000, 'ESPA'),
 ('Amphi2', 2000, 'ESPA'),
 ('meds1', 1980, 'Meds'),
@@ -57,7 +56,12 @@ INSERT INTO `batiment` (`codeB`, `anneeC`, `campus`) VALUES
 ('triolet_b07', 2000, 'Triolet'),
 ('eni1', 2000, 'ENI'),
 ('eni2', 2003, 'ENI'),
-('triolet_b31', 2020, 'Triolet');
+('triolet_b31', 2020, 'Triolet'),
+('Conaco1', 1960, 'EGS'),
+('batiment1', 2001, 'campus1'),
+('batiment2', 2002, 'campus1'),
+('batTest1', 2025, 'ESPA'),
+('Polyvalent1', 2025, 'Tsiory');
 
 -- --------------------------------------------------------
 
@@ -77,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `campus` (
 --
 
 INSERT INTO `campus` (`nomC`, `ville`) VALUES
-('St Priest', 'Montpellier'),
+('St Priest', 'Paris'),
 ('Pharmacie', 'Montpellier'),
 ('Richter', 'Montpellier'),
 ('FDE Mende', 'Mende'),
@@ -91,7 +95,8 @@ INSERT INTO `campus` (`nomC`, `ville`) VALUES
 ('ESPA', 'Vontovorona'),
 ('EGS', 'Ambohitsaina'),
 ('Barikadimy', 'Toamasina'),
-('ENI', 'Fianarantsoa');
+('ENI', 'Fianarantsoa'),
+('campus1', 'ville1');
 
 -- --------------------------------------------------------
 
@@ -117,10 +122,13 @@ INSERT INTO `composante` (`acronyme`, `nom`, `responsable`) VALUES
 ('TCO', 'TELECOM', 'R. Rajaonarison'),
 ('FDS', 'Faculté des Sciences', 'JM Marin'),
 ('Polytech', 'Polytech Montpellier', 'L. Torres'),
-('dokotra', 'dokoytraKely', 'Rasoamakamaro'),
+('cmp3', 'cmpcmp33333', 'mr cool'),
 ('MTO', 'Meteorologie', 'Ramasy'),
 ('EGS', 'Facultes Economie, Gestion et Sociologie', 'Ramanoelina'),
-('ISR', 'Ingenierie des Systemes et des Reseaux', 'Parfait');
+('ISR', 'Ingenierie des Systemes et des Reseaux', 'Parfait'),
+('comp1', 'composante1', 'responsable1'),
+('comp2', 'composante2', 'responsable2'),
+('INFO', 'Informatique', 'RANDRIAMISAINA');
 
 -- --------------------------------------------------------
 
@@ -141,14 +149,16 @@ CREATE TABLE IF NOT EXISTS `exploite` (
 --
 
 INSERT INTO `exploite` (`team`, `building`) VALUES
-('dokotra', 'TEST01'),
+('cmp3', 'batTest1'),
+('EGS', 'Conaco1'),
 ('EN', 'Amphi2'),
 ('FDS', 'triolet_b05'),
 ('FDS', 'triolet_b16'),
 ('FDS', 'triolet_b36'),
+('INFO', 'Polyvalent1'),
 ('ISR', 'eni1'),
 ('ISR', 'eni2'),
-('MTO', 'TEST01'),
+('MTO', 'batTest1'),
 ('Polytech', 'triolet_b12'),
 ('Polytech', 'triolet_b31'),
 ('TCO', 'Amphi2'),
@@ -197,8 +207,12 @@ INSERT INTO `salle` (`numS`, `capacite`, `typeS`, `acces`, `etage`, `batiment`) 
 ('TD5.126', 31, 'numerique', 'oui', 'rdc', 'triolet_b05'),
 ('TD5.210', 40, 'numerique', 'oui', '1', 'triolet_b05'),
 ('A_JJMoreau', 114, 'amphi', 'oui', '1', 'stPriest_b02'),
-('TSI', 555, 'tp', 'oui', '9', 'TEST01'),
-('B2', 80, 'td', 'oui', 'rdc', 'Amphi2');
+('B2', 80, 'td', 'oui', 'rdc', 'Amphi2'),
+('salle1', 20, 'tp', 'oui', '1', 'batiment1'),
+('salle12', 30, 'tp', 'oui', '2', 'batiment1'),
+('salle21', 40, 'td', 'oui', '2', 'batiment2'),
+('salle22', 20, 'tp', 'oui', 'rdc', 'batiment2'),
+('P01', 20, 'td', 'oui', 'rdc', 'Polyvalent1');
 
 -- --------------------------------------------------------
 
